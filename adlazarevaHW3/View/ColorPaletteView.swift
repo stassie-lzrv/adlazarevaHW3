@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol ColorChangeProtocol : AnyObject{
+    func changeColor(_ slider: ColorPaletteView)
+}
+
 extension UIColor{
     
     var redComponent:  CGFloat{
@@ -49,7 +53,9 @@ extension UIColor{
 
 
 
-final class ColorPaletteView: UIControl {
+final class ColorPaletteView: UIControl{
+    weak var delegate : ColorChangeProtocol?
+    
     private let stackView = UIStackView()
     private(set) var chosenColor = UIColor()
     
@@ -87,6 +93,7 @@ final class ColorPaletteView: UIControl {
         
                 addSubview(stackView)
                 stackView.pin(to: self)
+                
     }
     
     @objc
@@ -116,11 +123,14 @@ final class ColorPaletteView: UIControl {
             
         }
         sendActions(for: .touchDragInside)
+        delegate?.changeColor(self)
+        
     }
 }
 
 extension ColorPaletteView{
     private final class ColorSliderView:UIControl{
+        
         private let slider = UISlider()
         private let colorLabel = UILabel()
         

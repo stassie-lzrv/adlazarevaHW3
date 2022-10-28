@@ -7,7 +7,8 @@
 
 import UIKit
 
-final class WelcomeViewController: UIViewController {
+class WelcomeViewController: UIViewController, ColorChangeProtocol{
+    
     
     private let commentLabel=UILabel()
     private let valueLabel=UILabel()
@@ -98,12 +99,8 @@ final class WelcomeViewController: UIViewController {
         generator.impactOccurred()
     }
     
-    @objc
-    private func changeColor(_ slider: ColorPaletteView) {
-        UIView.animate(withDuration: 0.5) {
-            self.view.backgroundColor = slider.chosenColor
-        }
-    }
+   
+    
     
     private func setupCommentView() {
         let commentView = UIView()
@@ -190,5 +187,17 @@ final class WelcomeViewController: UIViewController {
         self.view.safeAreaLayoutGuide.bottomAnchor, 24)
     }
     
+    
+    @objc
+    func changeColor(_ slider: ColorPaletteView) {
+        UIView.animate(withDuration: 0.5) {
+            self.view.backgroundColor = slider.chosenColor
+        }
+    }
+    
+    
 }
+
+
+
 

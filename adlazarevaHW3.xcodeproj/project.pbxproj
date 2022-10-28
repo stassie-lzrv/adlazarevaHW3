@@ -15,6 +15,7 @@
 		81AD8A5A290BFD8D00141FBE /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD8A59290BFD8D00141FBE /* UIView+Pin.swift */; };
 		81AD8A5C290BFDA800141FBE /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD8A5B290BFDA800141FBE /* CALayer.swift */; };
 		81AD8A5F290BFF3C00141FBE /* ColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD8A5E290BFF3C00141FBE /* ColorPaletteView.swift */; };
+		81AD8A61290C7A7100141FBE /* ColorChangeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD8A60290C7A7100141FBE /* ColorChangeProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		81AD8A59290BFD8D00141FBE /* UIView+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
 		81AD8A5B290BFDA800141FBE /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		81AD8A5E290BFF3C00141FBE /* ColorPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaletteView.swift; sourceTree = "<group>"; };
+		81AD8A60290C7A7100141FBE /* ColorChangeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChangeProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				81AD8A59290BFD8D00141FBE /* UIView+Pin.swift */,
 				81AD8A5B290BFDA800141FBE /* CALayer.swift */,
 				81AD8A5E290BFF3C00141FBE /* ColorPaletteView.swift */,
+				81AD8A60290C7A7100141FBE /* ColorChangeProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				81AD8A5A290BFD8D00141FBE /* UIView+Pin.swift in Sources */,
 				81AD8A47290BF6CC00141FBE /* SceneDelegate.swift in Sources */,
 				81AD8A5F290BFF3C00141FBE /* ColorPaletteView.swift in Sources */,
+				81AD8A61290C7A7100141FBE /* ColorChangeProtocol.swift in Sources */,
 				81AD8A5C290BFDA800141FBE /* CALayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
