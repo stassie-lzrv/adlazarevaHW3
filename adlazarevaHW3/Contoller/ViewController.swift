@@ -13,7 +13,8 @@ final class WelcomeViewController: UIViewController {
     private let valueLabel=UILabel()
     private var value: Int = 0
     private let incrementButton = UIButton(type: .system)
-    
+    let colorPaletteView = ColorPaletteView()
+    var buttonsSV = UIStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +50,33 @@ final class WelcomeViewController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .systemGray6
+        commentLabel.isHidden=true;
+        colorPaletteView.isHidden=true;
+        
         setupIncrementButton()
         setupValueLabel()
         setupMenuButtons()
-        setupCommentView()
+        //setupCommentView()
+        setupColorControlSV()
         
+    }
+    
+    private func setupColorControlSV() {
+    
+        colorPaletteView.isHidden = true
+        view.addSubview(colorPaletteView)
+        colorPaletteView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            colorPaletteView.topAnchor.constraint(equalTo:
+    incrementButton.bottomAnchor, constant: 8),
+            colorPaletteView.leadingAnchor.constraint(equalTo:
+    view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            colorPaletteView.trailingAnchor.constraint(equalTo:
+    view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            colorPaletteView.bottomAnchor.constraint(equalTo:
+    buttonsSV.topAnchor, constant: -8)
+        ])
     }
                                         
 
@@ -66,9 +89,20 @@ final class WelcomeViewController: UIViewController {
         UIView.animate(withDuration: 1){
             self.updateUI()
         }
-        
-        
-        
+    }
+    
+    @objc
+    private func paletteButtonPressed() {
+        colorPaletteView.isHidden.toggle()
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+    }
+    
+    @objc
+    private func changeColor(_ slider: ColorPaletteView) {
+        UIView.animate(withDuration: 0.5) {
+            self.view.backgroundColor = slider.chosenColor
+        }
     }
     
     private func setupCommentView() {
@@ -141,11 +175,11 @@ final class WelcomeViewController: UIViewController {
     
     private func setupMenuButtons() {
         let colorsButton = makeMenuButton(title: "🎨")
-         
+        colorsButton.addTarget(self, action: #selector(paletteButtonPressed), for: .touchUpInside)
          let notesButton = makeMenuButton(title: "📝")
         let newsButton = makeMenuButton(title: "📰")
          
-        let buttonsSV = UIStackView(arrangedSubviews:
+        buttonsSV = UIStackView(arrangedSubviews:
         [colorsButton, notesButton, newsButton])
         buttonsSV.spacing = 12
         buttonsSV.axis = .horizontal

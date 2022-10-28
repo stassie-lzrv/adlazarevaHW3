@@ -27,6 +27,13 @@ extension UIView {
             }
         }
     }
+    
+    func pin(to superview: UIView) {
+        pinTop(to: superview)
+        pinBottom(to: superview)
+        pinLeft(to: superview)
+        pinRight(to: superview)
+        }
 
     @discardableResult
     func pinLeft(to superview: UIView, _ const: Int = 0) -> NSLayoutConstraint {
