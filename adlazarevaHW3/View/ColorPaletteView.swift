@@ -8,45 +8,37 @@
 import Foundation
 import UIKit
 
-protocol ColorChangeProtocol : AnyObject{
-    func changeColor(_ slider: ColorPaletteView)
-}
 
 extension UIColor{
     
-    var redComponent:  CGFloat{
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        var alpha: CGFloat = 0
-        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        return red;
+    func getComponents() -> [CGFloat] {
+            var red: CGFloat = 0
+            var green: CGFloat = 0
+            var blue: CGFloat = 0
+            var alpha: CGFloat = 0
+            
+            getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+            return [red, green, blue, alpha]
+        }
+    
+    
+    var redComponent: CGFloat{
+        let components = getComponents();
+        return components[0]
     }
     
-    var greenComponent:  CGFloat{
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        var alpha: CGFloat = 0
-        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        return green;
-    }
-    var blueComponent:  CGFloat{
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        var alpha: CGFloat = 0
-        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        return blue;
+    var greenComponent: CGFloat{
+        let components = getComponents();
+        return components[1]
     }
     
-    var alphaComponent:  CGFloat{
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        var alpha: CGFloat = 0
-        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        return alpha;
+    var blueComponent: CGFloat{
+        let components = getComponents();
+        return components[2]
+    }
+    var alphaComponent: CGFloat{
+        let components = getComponents();
+        return components[3]
     }
     
 }
@@ -54,10 +46,11 @@ extension UIColor{
 
 
 final class ColorPaletteView: UIControl{
-    weak var delegate : ColorChangeProtocol?
+    
+    var delegate : ColorChangeProtocol?
     
     private let stackView = UIStackView()
-    private(set) var chosenColor = UIColor()
+    private(set) var chosenColor : UIColor = .systemGray
     
     init() {
         super.init(frame: .zero)
@@ -68,6 +61,7 @@ final class ColorPaletteView: UIControl{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     private func setupView() {
         let redControl = ColorSliderView(colorName: "R", value:
         Float(chosenColor.redComponent))
@@ -92,12 +86,13 @@ final class ColorPaletteView: UIControl{
                 }
         
                 addSubview(stackView)
-                stackView.pin(to: self)
+       
+        stackView.pin(to: self)
                 
     }
     
     @objc
-    private func sliderMoved(slider: ColorSliderView) {
+    func sliderMoved(slider: ColorSliderView) {
         switch slider.tag {
         case 0:
             self.chosenColor = UIColor(
@@ -123,13 +118,13 @@ final class ColorPaletteView: UIControl{
             
         }
         sendActions(for: .touchDragInside)
-        delegate?.changeColor(self)
-        
+        delegate?.changeColor(chosenColor)
+        //stackView.backgroundColor = chosenColor
     }
 }
 
 extension ColorPaletteView{
-    private final class ColorSliderView:UIControl{
+       final class ColorSliderView:UIControl{
         
         private let slider = UISlider()
         private let colorLabel = UILabel()
@@ -162,7 +157,7 @@ extension ColorPaletteView{
         }
         
         @objc
-        private func sliderMoved(_ slider: UISlider) {
+        func sliderMoved(_ slider: UISlider) {
             self.value = slider.value
             sendActions(for: .touchDragInside)
             

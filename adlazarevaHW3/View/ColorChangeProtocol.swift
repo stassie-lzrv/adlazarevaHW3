@@ -6,4 +6,8 @@
 //
 
 import Foundation
+import UIKit
 
+protocol ColorChangeProtocol {
+    func changeColor(_ color: UIColor)
+}

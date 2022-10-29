@@ -10,6 +10,13 @@ import UIKit
 class WelcomeViewController: UIViewController, ColorChangeProtocol{
     
     
+    func changeColor(_ color: UIColor) {
+        incrementButton.backgroundColor = .blue
+        UIView.animate(withDuration: 0.5) {
+            self.view.backgroundColor = color
+        }
+    }
+    
     private let commentLabel=UILabel()
     private let valueLabel=UILabel()
     private var value: Int = 0
@@ -186,16 +193,7 @@ class WelcomeViewController: UIViewController, ColorChangeProtocol{
         buttonsSV.pinButton(to:
         self.view.safeAreaLayoutGuide.bottomAnchor, 24)
     }
-    
-    
-    @objc
-    func changeColor(_ slider: ColorPaletteView) {
-        UIView.animate(withDuration: 0.5) {
-            self.view.backgroundColor = slider.chosenColor
-        }
-    }
-    
-    
+
 }
 
 
