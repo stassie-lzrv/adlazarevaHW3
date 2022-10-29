@@ -47,7 +47,6 @@ extension ColorPaletteView{
             sendActions(for: .touchDragInside)
             
         }
-    
-        
+
     }
 }

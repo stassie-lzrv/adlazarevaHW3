@@ -10,10 +10,21 @@ import UIKit
 class WelcomeViewController: UIViewController, ColorChangeProtocol{
     
     func changeColor(_ color: UIColor) {
-        UIView.animate(withDuration: 0.5) {
-            self.view.backgroundColor = color
-        }
+        let colorTop =  color.cgColor
+        
+        let colorBottom = UIColor(red: color.redComponent/2.0, green: color.greenComponent/2.0, blue: color.blueComponent/2.0, alpha: 1.0).cgColor
+
+        let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = [colorTop, colorBottom]
+            gradientLayer.locations = [0.0, 1.0]
+            gradientLayer.frame = self.view.bounds
+                    
+        self.view.layer.addSublayer(gradientLayer)
+        setupView()
+        colorPaletteView.isHidden = false
     }
+    
+    
     
     private let commentLabel=UILabel()
     private let valueLabel=UILabel()
@@ -21,6 +32,7 @@ class WelcomeViewController: UIViewController, ColorChangeProtocol{
     private let incrementButton = UIButton(type: .system)
     let colorPaletteView = ColorPaletteView()
     var buttonsSV = UIStackView()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

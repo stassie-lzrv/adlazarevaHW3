@@ -50,7 +50,6 @@ final class ColorPaletteView: UIControl{
         
                 addSubview(stackView)
                 stackView.pin(to: self)
-                
     }
     
     @objc
