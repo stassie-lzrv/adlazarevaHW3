@@ -9,9 +9,7 @@ import UIKit
 
 class WelcomeViewController: UIViewController, ColorChangeProtocol{
     
-    
     func changeColor(_ color: UIColor) {
-        incrementButton.backgroundColor = .blue
         UIView.animate(withDuration: 0.5) {
             self.view.backgroundColor = color
         }
@@ -74,7 +72,7 @@ class WelcomeViewController: UIViewController, ColorChangeProtocol{
         colorPaletteView.isHidden = true
         view.addSubview(colorPaletteView)
         colorPaletteView.translatesAutoresizingMaskIntoConstraints = false
-        
+        colorPaletteView.delegate = self
         NSLayoutConstraint.activate([
             colorPaletteView.topAnchor.constraint(equalTo:
     incrementButton.bottomAnchor, constant: 8),

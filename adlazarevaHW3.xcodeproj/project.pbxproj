@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		817FE20F290D531E00FE5CB4 /* ColorPaletteViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE20E290D531E00FE5CB4 /* ColorPaletteViewExtension.swift */; };
+		817FE211290D537600FE5CB4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FE210290D537600FE5CB4 /* UIColorExtension.swift */; };
 		81AD8A45290BF6CC00141FBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD8A44290BF6CC00141FBE /* AppDelegate.swift */; };
 		81AD8A47290BF6CC00141FBE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD8A46290BF6CC00141FBE /* SceneDelegate.swift */; };
 		81AD8A49290BF6CC00141FBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD8A48290BF6CC00141FBE /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		817FE20E290D531E00FE5CB4 /* ColorPaletteViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaletteViewExtension.swift; sourceTree = "<group>"; };
+		817FE210290D537600FE5CB4 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		81AD8A41290BF6CC00141FBE /* adlazarevaHW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adlazarevaHW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AD8A44290BF6CC00141FBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81AD8A46290BF6CC00141FBE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		817FE20D290D52F400FE5CB4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				81AD8A5B290BFDA800141FBE /* CALayer.swift */,
+				817FE20E290D531E00FE5CB4 /* ColorPaletteViewExtension.swift */,
+				817FE210290D537600FE5CB4 /* UIColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		817FE212290D53C300FE5CB4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				81AD8A60290C7A7100141FBE /* ColorChangeProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		81AD8A38290BF6CC00141FBE = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +84,8 @@
 		81AD8A43290BF6CC00141FBE /* adlazarevaHW3 */ = {
 			isa = PBXGroup;
 			children = (
+				817FE212290D53C300FE5CB4 /* Protocols */,
+				817FE20D290D52F400FE5CB4 /* Extensions */,
 				81AD8A58290BFD7200141FBE /* View */,
 				81AD8A44290BF6CC00141FBE /* AppDelegate.swift */,
 				81AD8A46290BF6CC00141FBE /* SceneDelegate.swift */,
@@ -77,9 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				81AD8A59290BFD8D00141FBE /* UIView+Pin.swift */,
-				81AD8A5B290BFDA800141FBE /* CALayer.swift */,
 				81AD8A5E290BFF3C00141FBE /* ColorPaletteView.swift */,
-				81AD8A60290C7A7100141FBE /* ColorChangeProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,10 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				817FE20F290D531E00FE5CB4 /* ColorPaletteViewExtension.swift in Sources */,
 				81AD8A49290BF6CC00141FBE /* ViewController.swift in Sources */,
 				81AD8A45290BF6CC00141FBE /* AppDelegate.swift in Sources */,
 				81AD8A5A290BFD8D00141FBE /* UIView+Pin.swift in Sources */,
 				81AD8A47290BF6CC00141FBE /* SceneDelegate.swift in Sources */,
+				817FE211290D537600FE5CB4 /* UIColorExtension.swift in Sources */,
 				81AD8A5F290BFF3C00141FBE /* ColorPaletteView.swift in Sources */,
 				81AD8A61290C7A7100141FBE /* ColorChangeProtocol.swift in Sources */,
 				81AD8A5C290BFDA800141FBE /* CALayer.swift in Sources */,
